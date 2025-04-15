@@ -41,9 +41,10 @@
   <script type="text/javascript">
     (function(w,d){
       let nav = d.getElementById('nav');
-      // w.location.hash = '#gioi-thieu'
       let tob = [
         ['gioi-thieu', 'Giới thiệu'],
+        [, 'Lập trình Python'],
+        ['01-gioi-thieu-notebook', 'Giới thiệu Notebooks', 1],
       ];
       let curr = w.location.hash.slice(1);
       let page = (tob.find(t => t[0] === curr) || tob[0])[0];
@@ -51,13 +52,22 @@
       for (let i of tob) {
         let li = d.createElement('li');
         li.classList.add('nav-item');
-        let a = d.createElement('a');
+        let a = d.createElement(i[0] ? 'a' : 'h5');
         a.classList.add('nav-link');
-        if (page === i[0]) a.classList.add('active');
-        a.addEventListener('click', () => {w.location.hash = `#${i[0]}`});
-        a.href = i[0] + '.html';
-        a.target = 'right';
         a.innerText = i[1];
+        if (i[0]) {
+          if (page === i[0]) a.classList.add('active');
+          a.addEventListener('click', () => {
+            w.location.hash = `#${i[0]}`;
+            nav.querySelectorAll('.nav-link.active').forEach(i => i.classList.remove('active'));
+            a.classList.add('active');
+          });
+          a.href = i[0] + '.html';
+          a.target = 'right';
+        } else {
+          a.classList.add('text-dark');
+        }
+        if (i[2]) a.classList.add(`ms-${i[2]*3}`);
         li.appendChild(a);
         nav.appendChild(li);
       }
