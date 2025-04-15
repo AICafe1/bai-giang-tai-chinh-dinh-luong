@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>AI Cafe¹ - Tài chính định lượng</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-3 bg-light offcanvas-lg offcanvas-end" id="sidebar" tabindex="-1">
+        <div class="d-flex justify-content-between align-items-center p-2">
+          <h5 class="offcanvas-title">
+            <a class="navbar-brand p-0 me-2" href="https://aicafe.one/">
+              <img width="38" height="38" src="https://aicafe.one/wp-content/uploads/2021/05/cropped-favicon.cafe_.png" alt="AI Cafe¹"sizes="(max-width: 38px) 100vw, 38px">
+              <span>AI Cafe¹</span>
+            </a>
+          </h5>
+          <button type="button" class="btn-close d-lg-none" data-bs-dismiss="offcanvas" data-bs-target="#sidebar" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <nav class="w-100">
+            <ul class="nav nav-pills flex-column mb-auto" id="nav"></ul>
+          </nav>
+        </div>
+      </div>
+      <div class="col-lg-9 vh-100 overflow-hidden p-0">
+        <div class="navbar navbar-expand-lg position-fixed end-0">
+          <button class="navbar-toggler p-2 me-4 bg-white" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar" aria-label="Toggle docs navigation">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="bi" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+              <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"></path>
+            </svg>
+          </button>
+        </div>
+        <iframe id="right" name="right" class="w-100 vh-100"></iframe>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    (function(w,d){
+      let nav = d.getElementById('nav');
+      // w.location.hash = '#gioi-thieu'
+      let tob = [
+        ['gioi-thieu', 'Giới thiệu'],
+      ];
+      let curr = w.location.hash.slice(1);
+      let page = (tob.find(t => t[0] === curr) || tob[0])[0];
+      d.getElementById('right').src = page + '.html';
+      for (let i of tob) {
+        let li = d.createElement('li');
+        li.classList.add('nav-item');
+        let a = d.createElement('a');
+        a.classList.add('nav-link');
+        if (page === i[0]) a.classList.add('active');
+        a.addEventListener('click', () => {w.location.hash = `#${i[0]}`});
+        a.href = i[0] + '.html';
+        a.target = 'right';
+        a.innerText = i[1];
+        li.appendChild(a);
+        nav.appendChild(li);
+      }
+    })(window, document);
+  </script>
+</body>
+</html>
