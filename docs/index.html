@@ -10,7 +10,7 @@
 <body>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-lg-3 bg-light offcanvas-lg offcanvas-end" id="sidebar" tabindex="-1">
+      <div class="col-lg-3 bg-light vh-100 py-2 overflow-y-auto offcanvas-lg offcanvas-end" id="sidebar" tabindex="-1">
         <div class="d-flex justify-content-between align-items-center p-2">
           <h5 class="offcanvas-title">
             <a class="navbar-brand p-0 me-2" href="https://aicafe.one/">
@@ -52,6 +52,7 @@
         [, 'Kỹ thuật Thống Kê'],
         ['06-trung-binh-thong-ke', 'Trung bình thống kê', 1],
         ['07-phuong-sai', 'Phương sai', 1],
+        ['08-moment-thong-ke', 'Các moment thống kê', 1],
       ];
       let curr = w.location.hash.slice(1);
       let page = (tob.find(t => t[0] === curr) || tob[0])[0];
