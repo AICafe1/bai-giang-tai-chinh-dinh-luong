@@ -3,7 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>gioi_thieu</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>06_trung_binh_thong_ke</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -7522,7 +7522,7 @@ a.anchor-link {
 © Bản quyền sửa đổi thuộc về AI Cafe¹<br/>
 Giấy phép <a href="https://creativecommons.org/licenses/by/4.0/legalcode">Creative Commons Attribution 4.0</a>.<br/>
 <a href="https://aicafe.one/khuyen-cao/">Khuyến cáo</a></p>
-<hr/>
+<h2 id=""><a href="https://colab.research.google.com/drive/1vjPD30Ta_tRIGgM4j__YURGolLVNqKAB" target="_blank"><img alt="Open in Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a><a class="anchor-link" href="#">¶</a></h2>
 </div>
 </div>
 </div>
@@ -7533,13 +7533,471 @@ Giấy phép <a href="https://creativecommons.org/licenses/by/4.0/legalcode">Cre
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="T%E1%BB%95ng-quan-v%E1%BB%81-chu%E1%BB%97i-b%C3%A0i-gi%E1%BA%A3ng">Tổng quan về chuỗi bài giảng<a class="anchor-link" href="#T%E1%BB%95ng-quan-v%E1%BB%81-chu%E1%BB%97i-b%C3%A0i-gi%E1%BA%A3ng">¶</a></h2><p>Các bài giảng được chia thành ba phần:</p>
-<ol>
-<li><strong>Giới thiệu về Python</strong>: Các bài giảng này cung cấp một cái nhìn tổng quan về Jupyter/Colab notebooks, Python và một số thư viện xử lý dữ liệu chính trong Python.</li>
-<li><strong>Các chủ đề trong Thống kê</strong>: Bao gồm nhiều chủ đề có thể áp dụng rộng rãi trong lĩnh vực thống kê, các bài giảng này thường bao gồm các ví dụ liên quan đến tài chính.</li>
-<li><strong>Các chủ đề trong Tài chính</strong>: Dựa trên các bài giảng về thống kê, các bài giảng này đi sâu vào các chủ đề cụ thể hơn liên quan đến tài chính và quản lý danh mục đầu tư.</li>
-</ol>
-<p>Mục đích của các bài giảng là cung cấp một nền tảng lý thuyết trong tài chính định lượng.</p>
+<h1 id="C%C3%A1c-c%C3%A1ch-%C4%91o-gi%C3%A1-tr%E1%BB%8B-trung-b%C3%ACnh">Các cách đo giá trị trung bình<a class="anchor-link" href="#C%C3%A1c-c%C3%A1ch-%C4%91o-gi%C3%A1-tr%E1%BB%8B-trung-b%C3%ACnh">¶</a></h1><p>By Evgenia "Jenny" Nitishinskaya, Maxwell Margenot, and Delaney Mackenzie.</p>
+<p>Edited by AI Cafe¹</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Trong notebook này, chúng ta sẽ thảo luận về các cách tóm tắt một tập hợp dữ liệu bằng một số duy nhất. Mục tiêu là ghi lại thông tin về sự phân bố của dữ liệu.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Trung-b%C3%ACnh-c%E1%BB%99ng-(trung-b%C3%ACnh-s%E1%BB%91-h%E1%BB%8Dc)">Trung bình cộng (trung bình số học)<a class="anchor-link" href="#Trung-b%C3%ACnh-c%E1%BB%99ng-(trung-b%C3%ACnh-s%E1%BB%91-h%E1%BB%8Dc)">¶</a></h2><p>Trung bình cộng được sử dụng rất thường xuyên để tổng hợp dữ liệu số và thường được hiểu là từ "trung bình." Nó được định nghĩa là tổng của các quan sát chia cho số lượng quan sát:
+$$\mu = \frac{\sum_{i=1}^N X_i}{N}$$</p>
+<p>Trong đó $X_1, X_2, \ldots , X_N$ là các quan sát của chúng ta.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Two useful statistical libraries</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">stats</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># We'll use these two data sets as examples</span>
+<span class="n">x1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">+</span> <span class="p">[</span><span class="mi">100</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Mean of x1:'</span><span class="p">,</span> <span class="nb">sum</span><span class="p">(</span><span class="n">x1</span><span class="p">),</span> <span class="s1">'/'</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x1</span><span class="p">),</span> <span class="s1">'='</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Mean of x2:'</span><span class="p">,</span> <span class="nb">sum</span><span class="p">(</span><span class="n">x2</span><span class="p">),</span> <span class="s1">'/'</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x2</span><span class="p">),</span> <span class="s1">'='</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Mean of x1: 29 / 8 = 3.625
+Mean of x2: 129 / 9 = 14.333333333333334
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Chúng ta cũng có thể định nghĩa một trung bình số học <i>có trọng số</i>, điều này rất hữu ích để chỉ định rõ số lần mỗi quan sát nên được tính. Ví dụ, trong việc tính toán giá trị trung bình của một danh mục đầu tư, sẽ thuận tiện hơn khi nói rằng 70% cổ phiếu của bạn thuộc loại X thay vì liệt kê từng cổ phiếu mà bạn nắm giữ.</p>
+<p>Trung bình số học có trọng số được định nghĩa là
+$$\sum_{i=1}^n w_i X_i $$</p>
+<p>trong đó $\sum_{i=1}^n w_i = 1$. Trong trung bình số học thông thường, chúng ta có $w_i = 1/n$ cho tất cả $i$.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Trung-v%E1%BB%8B">Trung vị<a class="anchor-link" href="#Trung-v%E1%BB%8B">¶</a></h2><p>Trung vị của một tập dữ liệu là số xuất hiện ở giữa danh sách khi nó được sắp xếp theo thứ tự tăng dần hoặc giảm dần. Khi chúng ta có một số lẻ $n$ các điểm dữ liệu, đây đơn giản là giá trị ở vị trí $(n+1)/2$. Khi chúng ta có một số chẵn các điểm dữ liệu, danh sách sẽ chia làm hai nửa và không có mục nào ở giữa; vì vậy chúng ta định nghĩa trung vị là giá trị trung bình của các giá trị ở vị trí $n/2$ và $(n+2)/2$.</p>
+<p>Trung vị ít bị ảnh hưởng bởi các giá trị cực trị trong dữ liệu hơn so với trung bình số học. Nó cho chúng ta biết giá trị chia tách tập dữ liệu thành hai nửa, nhưng không cho biết các giá trị khác lớn hơn hay nhỏ hơn bao nhiêu.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'Median of x1:'</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">x1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Median of x2:'</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">x2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Median of x1: 3.5
+Median of x2: 4.0
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Mode">Mode<a class="anchor-link" href="#Mode">¶</a></h2><p>Mode là giá trị xảy ra thường xuyên nhất trong một tập dữ liệu. Nó có thể được áp dụng cho dữ liệu không phải số, khác với trung bình và trung vị. Một tình huống mà chế độ hữu ích là đối với dữ liệu có các giá trị khả thi độc lập. Ví dụ, trong kết quả của một con súc sắc có trọng số, việc ra số 6 thường xuyên không có nghĩa là khả năng ra số 5 cũng cao; vì vậy, việc biết rằng tập dữ liệu có một mode là 6 thì hữu ích hơn so với việc biết rằng nó có một trung bình là 4.5.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Scipy has a built-in mode function, but it will return exactly one value</span>
+<span class="c1"># even if two values occur the same number of times, or if no value appears more than once</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'One mode of x1:'</span><span class="p">,</span> <span class="n">stats</span><span class="o">.</span><span class="n">mode</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
+
+<span class="c1"># So we will write our own</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">mode</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
+    <span class="c1"># Count the number of times each element appears in the list</span>
+    <span class="n">counts</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">counts</span><span class="p">:</span>
+            <span class="n">counts</span><span class="p">[</span><span class="n">e</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">counts</span><span class="p">[</span><span class="n">e</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="c1"># Return the elements that appear the most times</span>
+    <span class="n">maxcount</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">modes</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="ow">in</span> <span class="n">counts</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="o">&gt;</span> <span class="n">maxcount</span><span class="p">:</span>
+            <span class="n">maxcount</span> <span class="o">=</span> <span class="n">value</span>
+            <span class="n">modes</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">}</span>
+        <span class="k">elif</span> <span class="n">value</span> <span class="o">==</span> <span class="n">maxcount</span><span class="p">:</span>
+            <span class="n">modes</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">maxcount</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">modes</span><span class="p">)</span>
+    <span class="k">return</span> <span class="s1">'No mode'</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">'All of the modes of x1:'</span><span class="p">,</span> <span class="n">mode</span><span class="p">(</span><span class="n">x1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>One mode of x1: 2
+All of the modes of x1: [2, 5]
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Đối với dữ liệu có thể có nhiều giá trị khác nhau, chẳng hạn như dữ liệu lợi nhuận, có thể không có bất kỳ giá trị nào xuất hiện nhiều hơn một lần. Trong trường hợp này, chúng ta có thể nhóm các giá trị lại, giống như khi chúng ta xây dựng một biểu đồ histogram, và sau đó tìm mode của tập dữ liệu, trong đó mỗi giá trị được thay thế bằng tên của nhóm của nó. Cụ thể, chúng ta tìm nhóm mà các phần tử rơi vào thường xuyên nhất.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Cài thư viện lấy dữ liệu miễn phí</span>
+<span class="o">!</span>curl<span class="w"> </span>-fsSLO<span class="w"> </span>https://raw.githubusercontent.com/algo-stocks/data/master/data.py
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Get return data for an asset and compute the mode of the data set</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">data</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_prices</span>
+
+<span class="n">start</span> <span class="o">=</span> <span class="s1">'2024-01-01'</span>
+<span class="n">end</span> <span class="o">=</span> <span class="s1">'2025-01-01'</span>
+<span class="n">prices</span> <span class="o">=</span> <span class="n">get_prices</span><span class="p">(</span><span class="s1">'FPT'</span><span class="p">,</span> <span class="n">start_date</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">end_date</span><span class="o">=</span><span class="n">end</span><span class="p">)[</span><span class="s1">'FPT'</span><span class="p">]</span>
+<span class="n">returns</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()[</span><span class="mi">1</span><span class="p">:]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Mode of returns:'</span><span class="p">,</span> <span class="n">mode</span><span class="p">(</span><span class="n">returns</span><span class="p">))</span>
+
+<span class="c1"># Since all of the returns are distinct, we use a frequency distribution to get an alternative mode.</span>
+<span class="c1"># np.histogram returns the frequency distribution over the bins as well as the endpoints of the bins</span>
+<span class="n">hist</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">returns</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span> <span class="c1"># Break data up into 20 bins</span>
+<span class="n">maxfreq</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">hist</span><span class="p">)</span>
+<span class="c1"># Find all of the bins that are hit with frequency maxfreq, then print the intervals corresponding to them</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Mode of bins:'</span><span class="p">,</span> <span class="p">[(</span><span class="n">bins</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">bins</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">hist</span><span class="p">)</span> <span class="k">if</span> <span class="n">j</span> <span class="o">==</span> <span class="n">maxfreq</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Mode of returns: [0.0]
+Mode of bins: [(np.float64(0.0033463175460354475), np.float64(0.008855524655934428))]
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Trung-b%C3%ACnh-h%C3%ACnh-h%E1%BB%8Dc">Trung bình hình học<a class="anchor-link" href="#Trung-b%C3%ACnh-h%C3%ACnh-h%E1%BB%8Dc">¶</a></h2><p>Trong khi trung bình cộng sử dụng phép cộng, trung bình hình học sử dụng phép nhân:
+$$ G = \sqrt[n]{X_1X_1\ldots X_n} $$</p>
+<p>cho các quan sát $X_i \geq 0$. Chúng ta cũng có thể viết lại nó dưới dạng trung bình cộng bằng cách sử dụng logarit:
+$$ \ln G = \frac{\sum_{i=1}^n \ln X_i}{n} $$</p>
+<p>Trung bình hình học luôn nhỏ hơn hoặc bằng trung bình cộng (khi làm việc với các quan sát không âm), dấu bằng chỉ xảy ra khi tất cả các quan sát đều giống nhau.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Use scipy's gmean function to compute the geometric mean</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Geometric mean of x1:'</span><span class="p">,</span> <span class="n">stats</span><span class="o">.</span><span class="n">gmean</span><span class="p">(</span><span class="n">x1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Geometric mean of x2:'</span><span class="p">,</span> <span class="n">stats</span><span class="o">.</span><span class="n">gmean</span><span class="p">(</span><span class="n">x2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Geometric mean of x1: 3.0941040249774403
+Geometric mean of x2: 4.552534587620071
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Nếu chúng ta muốn tính toán trung bình hình học khi có các giá trị âm, vấn đề này sẽ dễ dàng giải quyết trong trường hợp lợi nhuận tài sản, nơi mà các giá trị của chúng luôn ít nhất là -1. Chúng ta có thể cộng 1 vào lợi nhuận $R_t$ để có được $1 + R_t$, đây là tỷ lệ giá của tài sản trong hai khoảng thời gian liên tiếp (thay vì là sự thay đổi phần trăm giữa các giá, $R_t$). Đại lượng này sẽ luôn không âm. Vì vậy, chúng ta có thể tính toán lợi nhuận trung bình hình học,
+$$ R_G = \sqrt[T]{(1 + R_1)\ldots (1 + R_T)} - 1$$</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Add 1 to every value in the returns array and then compute R_G</span>
+<span class="n">ratios</span> <span class="o">=</span> <span class="n">returns</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">returns</span><span class="p">))</span>
+<span class="n">R_G</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">gmean</span><span class="p">(</span><span class="n">ratios</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Geometric mean of returns:'</span><span class="p">,</span> <span class="n">R_G</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Geometric mean of returns: 0.002482707165191833
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Trung bình hình học được định nghĩa sao cho nếu tỷ suất lợi nhuận trong suốt thời gian là hằng số và bằng $R_G$, thì giá cuối cùng của tài sản sẽ giống như trong trường hợp của các tỷ suất lợi nhuận $R_1, \ldots, R_T$.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">returns</span><span class="p">)</span>
+<span class="n">init_price</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">final_price</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">T</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Initial price:'</span><span class="p">,</span> <span class="n">init_price</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Final price:'</span><span class="p">,</span> <span class="n">final_price</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Final price as computed with R_G:'</span><span class="p">,</span> <span class="n">init_price</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">R_G</span><span class="p">)</span><span class="o">**</span><span class="n">T</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Initial price: 82.2478
+Final price: 152.5
+Final price as computed with R_G: 152.49999999999918
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Trung-b%C3%ACnh-%C4%91i%E1%BB%81u-h%C3%B2a-(Harmonic-mean)">Trung bình điều hòa (Harmonic mean)<a class="anchor-link" href="#Trung-b%C3%ACnh-%C4%91i%E1%BB%81u-h%C3%B2a-(Harmonic-mean)">¶</a></h2><p>Trung bình điều hòa ít được sử dụng hơn so với các loại trung bình khác. Nó được định nghĩa là
+$$ H = \frac{n}{\sum_{i=1}^n \frac{1}{X_i}} $$</p>
+<p>Giống như trung bình hình học, chúng ta có thể viết lại trung bình điều hòa trông giống như một trung bình số học. Đảo ngược của trung bình điều hòa là trung bình số học của các số đảo ngược của các quan sát:
+$$ \frac{1}{H} = \frac{\sum_{i=1}^n \frac{1}{X_i}}{n} $$</p>
+<p>Trung bình điều hòa cho các số không âm $X_i$ luôn luôn nhỏ hơn hoặc bằng trung bình hình học (và trung bình hình học cũng nhỏ hơn hoặc bằng trung bình số học), và chúng chỉ bằng nhau khi tất cả các quan sát đều bằng nhau.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'Harmonic mean of x1:'</span><span class="p">,</span> <span class="n">stats</span><span class="o">.</span><span class="n">hmean</span><span class="p">(</span><span class="n">x1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Harmonic mean of x2:'</span><span class="p">,</span> <span class="n">stats</span><span class="o">.</span><span class="n">hmean</span><span class="p">(</span><span class="n">x2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Harmonic mean of x1: 2.5590251332825593
+Harmonic mean of x2: 2.869723656240511
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Trung bình điều hòa có thể được sử dụng khi dữ liệu có thể được diễn đạt một cách tự nhiên dưới dạng tỷ lệ. Chẳng hạn, trong chiến lược trung bình chi phí đô la, một số tiền cố định được chi cho cổ phiếu của một công ty ở các khoảng thời gian đều đặn. Khi giá cổ phiếu cao hơn, nhà đầu tư áp dụng chiến lược này sẽ mua ít cổ phiếu hơn. Số tiền trung bình (trung bình cộng) mà họ trả cho cổ phiếu là trung bình điều hòa của các mức giá.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="C%C3%A1c-%C6%AF%E1%BB%9Bc-L%C6%B0%E1%BB%A3ng-%C4%90i%E1%BB%83m-C%C3%B3-Th%E1%BB%83-G%C3%A2y-Nh%E1%BA%A7m-L%E1%BA%ABn">Các Ước Lượng Điểm Có Thể Gây Nhầm Lẫn<a class="anchor-link" href="#C%C3%A1c-%C6%AF%E1%BB%9Bc-L%C6%B0%E1%BB%A3ng-%C4%90i%E1%BB%83m-C%C3%B3-Th%E1%BB%83-G%C3%A2y-Nh%E1%BA%A7m-L%E1%BA%ABn">¶</a></h2><p>Các giá trị trung bình vốn dĩ ẩn chứa nhiều thông tin, vì chúng kết hợp toàn bộ phân phối thành một con số duy nhất. Do đó, thường thì các 'ước lượng điểm' hoặc các chỉ số sử dụng một con số có thể che giấu những vấn đề lớn trong dữ liệu của bạn. Bạn nên cẩn thận để đảm bảo rằng bạn không đánh mất thông tin quan trọng khi tóm tắt dữ liệu, và bạn nên hiếm khi, nếu không muốn nói là không bao giờ, sử dụng giá trị trung bình mà không tham chiếu đến một thước đo độ phân tán.</p>
+<h2 id="Ph%C3%A2n-Ph%E1%BB%91i-C%C6%A1-B%E1%BA%A3n-C%C3%B3-Th%E1%BB%83-Sai">Phân Phối Cơ Bản Có Thể Sai<a class="anchor-link" href="#Ph%C3%A2n-Ph%E1%BB%91i-C%C6%A1-B%E1%BA%A3n-C%C3%B3-Th%E1%BB%83-Sai">¶</a></h2><p>Thậm chí khi bạn đang sử dụng các chỉ số đúng cho giá trị trung bình và độ phân tán, chúng có thể không có ý nghĩa nếu phân phối cơ bản của bạn không giống như bạn nghĩ. Ví dụ, việc sử dụng độ lệch chuẩn để đo tần suất của một sự kiện thường giả định tính chuẩn. Cố gắng không giả định các phân phối trừ khi bạn phải làm như vậy, trong trường hợp đó bạn nên kiểm tra kỹ lưỡng xem dữ liệu có phù hợp với phân phối mà bạn đang giả định hay không.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Tham-kh%E1%BA%A3o">Tham khảo<a class="anchor-link" href="#Tham-kh%E1%BA%A3o">¶</a></h2><ul>
+<li>"Quantitative Investment Analysis", by DeFusco, McLeavey, Pinto, and Runkle</li>
+</ul>
 </div>
 </div>
 </div>
