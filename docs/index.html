@@ -58,6 +58,7 @@
         ['11-bien-ngau-nhien', 'Biến ngẫu nhiên', 1],
         ['12-hoi-quy-tuyen-tinh', 'Hồi quy tuyến tính', 1],
         ['13-maximum-likelihood', 'Ước lượng Maximum Likelihood', 1],
+        ['14-su-bat-dinh-cua-mo-hinh-hoi-quy', 'Sự không ổn định của mô hình hồi quy', 1],
       ];
       let curr = w.location.hash.slice(1);
       let page = (tob.find(t => t[0] === curr) || tob[0])[0];
@@ -68,8 +69,14 @@
         let a = d.createElement(i[0] ? 'a' : 'h5');
         a.classList.add('nav-link');
         a.innerText = i[1];
+        if (i[2]) a.classList.add(`ms-${i[2]*3}`);
+        li.appendChild(a);
+        nav.appendChild(li);
         if (i[0]) {
-          if (page === i[0]) a.classList.add('active');
+          if (page === i[0]) {
+            a.classList.add('active');
+            a.scrollIntoView();
+          }
           a.addEventListener('click', () => {
             w.location.hash = `#${i[0]}`;
             nav.querySelectorAll('.nav-link.active').forEach(i => i.classList.remove('active'));
@@ -80,9 +87,6 @@
         } else {
           a.classList.add('text-dark');
         }
-        if (i[2]) a.classList.add(`ms-${i[2]*3}`);
-        li.appendChild(a);
-        nav.appendChild(li);
       }
     })(window, document);
   </script>
