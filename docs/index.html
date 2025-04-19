@@ -94,6 +94,14 @@
           a.classList.add('text-dark');
         }
       }
+      w.addEventListener('hashchange', () => {
+        let curr = w.location.hash.slice(1);
+        let page = (tob.find(t => t[0] === curr) || tob[0])[0];
+        let iframe = d.getElementById('right');
+        if (iframe.src.indexOf(page) === -1) {
+          iframe.src = page + '.html';
+        }
+      });
     })(window, document);
   </script>
 </body>
