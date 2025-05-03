@@ -85,7 +85,8 @@
         ['37-long-short-equity', 'Chiến lược long-short equity', 1],
         ['38-phan-tich-nhan-to-voi-alphalens', 'Phân tích nhân tố với Alphalens', 1],
         ['39-why-hedge', 'Tại sao nên phòng vệ Beta và rủi ro ngành', 1],
-        ['40-VaR-va-CVaR', 'VaR và CVaR'],
+        ['40-VaR-va-CVaR', 'VaR và CVaR', 1],
+        ['41-integration-cointegration-va-stationarity', 'Integration, Cointegration và Stationarity', 1],
       ];
       let curr = w.location.hash.slice(1);
       let page = (tob.find(t => t[0] === curr) || tob[0])[0];
@@ -96,7 +97,14 @@
         let a = d.createElement(i[0] ? 'a' : 'h5');
         a.classList.add('nav-link');
         a.innerText = i[1];
-        if (i[2]) a.classList.add(`ms-${i[2]*3}`);
+        if (i[2]) {
+          a.classList.add(`ms-${i[2]*3}`);
+          let s = d.createElement('span');
+          s.classList.add('rounded-circle','border','border-primary','p-1','me-1');
+          s.style.fontSize = '12px';
+          s.innerHTML = i[0].slice(0, 2);
+          a.prepend(s);
+        }
         li.appendChild(a);
         nav.appendChild(li);
         if (i[0]) {
