@@ -102,12 +102,10 @@
         a.classList.add('nav-link');
         a.innerText = i[1];
         if (i[2]) {
-          a.classList.add(`ms-${i[2]}`);
-          let s = d.createElement('span');
-          s.classList.add('rounded-circle','border','border-primary-subtle','p-1','me-2');
-          s.style.fontSize = '12px';
-          s.innerHTML = i[0].slice(0, 2);
-          a.prepend(s);
+          a.classList.add(`ms-${i[2]}`,'d-flex','align-items-center');
+          let b = d.createElement('div');
+          b.innerHTML=`<span class="rounded-circle border border-primary-subtle p-1 me-2" style="font-size: 12px">${i[0].slice(0,2)}</span>`;
+          a.prepend(b);
         }
         li.appendChild(a);
         nav.appendChild(li);
