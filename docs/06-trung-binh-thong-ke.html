@@ -7579,7 +7579,7 @@ $$\mu = \frac{\sum_{i=1}^N X_i}{N}$$</p>
 <span class="n">x2</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">+</span> <span class="p">[</span><span class="mi">100</span><span class="p">]</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">'Mean of x1:'</span><span class="p">,</span> <span class="nb">sum</span><span class="p">(</span><span class="n">x1</span><span class="p">),</span> <span class="s1">'/'</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x1</span><span class="p">),</span> <span class="s1">'='</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x1</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">'Mean of x2:'</span><span class="p">,</span> <span class="nb">sum</span><span class="p">(</span><span class="n">x2</span><span class="p">),</span> <span class="s1">'/'</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x2</span><span class="p">),</span> <span class="s1">'='</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Mean of x2:'</span><span class="p">,</span> <span class="nb">sum</span><span class="p">(</span><span class="n">x2</span><span class="p">),</span> <span class="s1">'/'</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x2</span><span class="p">),</span> <span class="s1">'='</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7593,7 +7593,7 @@ $$\mu = \frac{\sum_{i=1}^N X_i}{N}$$</p>
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Mean of x1: 29 / 8 = 3.625
-Mean of x2: 129 / 9 = 14.333333333333334
+Mean of x2: 129 / 9 = 14.333
 </pre>
 </div>
 </div>
@@ -7797,7 +7797,7 @@ Mode of bins: [(np.float64(0.0033463175460354475), np.float64(0.0088555246559344
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Trung-b%C3%ACnh-h%C3%ACnh-h%E1%BB%8Dc">Trung bình hình học<a class="anchor-link" href="#Trung-b%C3%ACnh-h%C3%ACnh-h%E1%BB%8Dc">¶</a></h2><p>Trong khi trung bình cộng sử dụng phép cộng, trung bình hình học sử dụng phép nhân:
-$$ G = \sqrt[n]{X_1X_1\ldots X_n} $$</p>
+$$ G = \sqrt[n]{X_1X_2\ldots X_n} $$</p>
 <p>cho các quan sát $X_i \geq 0$. Chúng ta cũng có thể viết lại nó dưới dạng trung bình cộng bằng cách sử dụng logarit:
 $$ \ln G = \frac{\sum_{i=1}^n \ln X_i}{n} $$</p>
 <p>Trung bình hình học luôn nhỏ hơn hoặc bằng trung bình cộng (khi làm việc với các quan sát không âm), dấu bằng chỉ xảy ra khi tất cả các quan sát đều giống nhau.</p>
